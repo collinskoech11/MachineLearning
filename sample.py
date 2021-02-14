@@ -1,8 +1,8 @@
 import numpy as np
-import matplotlib as mtp 
+import matplotlib.pyplot as mtp 
 import pandas as pd 
 
-data_set= pd.read_csv('50_Complist.csv')
+data_set= pd.read_csv('50_CompList.csv')
 data_set.head(2)
 
 x= data_set.iloc[:, :-1].values
@@ -14,8 +14,8 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 #Encode State Column 
 labelencoder_x = LabelEncoder()
 x[:,3] = labelencoder_x.fit_transform(x[:,3])
-from sklearn.compose import ColumnTransfer
-ct = ColumnTransfer([("state", OneHotEncoder(), [3])], remainder = 'passthrough')
+from sklearn.compose import ColumnTransformer
+ct = ColumnTransformer([("state", OneHotEncoder(), [3])], remainder = 'passthrough')
 x = ct.fit_transform(x)
 
 #Splitting the dataset into training and test set.
