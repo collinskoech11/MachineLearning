@@ -27,6 +27,7 @@ from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(x_train, y_train)
 
+
 y_pred= regressor.predict(x_test)
 
 print('Train Score: ', regressor.score(x_train, y_train))
