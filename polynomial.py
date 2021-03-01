@@ -88,9 +88,13 @@ viz_polymonial_smooth()
 
 
 # Predicting a new result with Linear Regression
-lin_reg.predict([[5.5]])
+print("Linear") 
+print(lin_reg.predict([[5.5]]))
+
 #output should be 249500
 
 # Predicting a new result with Polymonial Regression
-pol_reg.predict(poly_reg.fit_transform([[5.5]]))
+print("polynomial")
+print(pol_reg.predict(poly_reg.fit_transform([[5.5]])))
+
 #output should be 132148.43750003

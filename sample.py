@@ -10,7 +10,7 @@ y= data_set.iloc[:, 4].values
 
 #Categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-
+ 
 #Encode State Column 
 labelencoder_x = LabelEncoder()
 x[:,3] = labelencoder_x.fit_transform(x[:,3])
