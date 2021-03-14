@@ -8,7 +8,7 @@ Created on Mon Mar  8 15:09:07 2021
 import numpy as np
 import random
 import matplotlib.pyplot as plt
-%matplotlib inline
+
 np.random.seed(5)
 
 n = 10
@@ -46,7 +46,7 @@ for i in range(500):
         choice = np.where(arms == np.random.choice(arms))[0][0]
         thisAV = np.array([[choice, reward(arms[choice])]]) #choice, reward
 
-av = np.concatenate((av, thisAV), axis=0) #add to our action-value memory array
+av =np.concatenate((av, thisAV), axis=0) #add to our action-value memory array
     #calculate the mean reward
-    runningMean = np.mean(av[:,1])
-    plt.scatter(i, runningMean)
+runningMean = np.mean(av[:,1])
+plt.scatter(i, runningMean)
