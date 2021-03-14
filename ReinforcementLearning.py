@@ -8,9 +8,13 @@ Created on Mon Mar  8 15:09:07 2021
 import numpy as np
 import random
 import matplotlib.pyplot as plt
+import pandas as pd
 
-f = open("OptimalPolicy_angletol45.csv", "r")
-lines = f.readlines()
+dataset = pd.read_csv('OptimalPolicy_angletol45.csv')
+print(dataset.head())
+print(dataset.shape)
+
+
 
 np.random.seed(5)
 
@@ -52,4 +56,4 @@ for i in range(500):
 av =np.concatenate((av, thisAV), axis=0) #add to our action-value memory array
     #calculate the mean reward
 runningMean = np.mean(av[:,1])
-plt.scatter(i, runningMean)
+print(plt.scatter(i, runningMean))
