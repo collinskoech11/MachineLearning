@@ -14,7 +14,7 @@ lines = f.readlines()
 
 np.random.seed(5)
 
-n = f
+n = 10
 arms = np.random.rand(n)
 eps = 0.1 #probability of exploration action
 
