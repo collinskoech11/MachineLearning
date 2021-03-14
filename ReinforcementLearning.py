@@ -9,9 +9,12 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 
+f = open("OptimalPolicy_angletol45.csv", "r")
+lines = f.readlines()
+
 np.random.seed(5)
 
-n = 10
+n = f
 arms = np.random.rand(n)
 eps = 0.1 #probability of exploration action
 
