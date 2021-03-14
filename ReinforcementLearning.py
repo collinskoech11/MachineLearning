@@ -15,6 +15,10 @@ print(dataset.head())
 print(dataset.shape)
 
 
+X = dataset.iloc[:, 1:2].values
+y = dataset.iloc[:, 2].values
+
+
 
 np.random.seed(5)
 
@@ -44,16 +48,21 @@ def bestArm(a):
 
 plt.xlabel("Number of times played")
 plt.ylabel("Average Reward")
+from sklearn.linear_model import LinearRegression
+lin_reg = LinearRegression()
+lin_reg.fit(X, y)
 for i in range(500):
     if random.random() > eps: #greedy exploitation action
         choice = bestArm(av)
         thisAV = np.array([[choice, reward(arms[choice])]])
         av = np.concatenate((av, thisAV), axis=0)
+        plt.scatter(X, y, color='red')
+        plt.plot(X, lin_reg.predict(X), color='blue')
     else: #exploration action
         choice = np.where(arms == np.random.choice(arms))[0][0]
         thisAV = np.array([[choice, reward(arms[choice])]]) #choice, reward
 
-av =np.concatenate((av, thisAV), axis=0) #add to our action-value memory array
+av = np.concatenate((av, thisAV), axis=0) #add to our action-value memory array
     #calculate the mean reward
 runningMean = np.mean(av[:,1])
 print(plt.scatter(i, runningMean))
